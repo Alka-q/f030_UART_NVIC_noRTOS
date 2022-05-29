@@ -50,6 +50,7 @@ uint8_t rxBuff[40];
 uint8_t rxBuff1[10];
 uint8_t rxIndex = 0;
 uint8_t rxCNT=0;
+uint8_t TXSendBuffer[] = "Osman\n\r";
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -135,6 +136,9 @@ int main(void)
 	  if(rxIndex==40){
 		  rxIndex = 0;
 	  }
+
+	  HAL_UART_Transmit(&huart1, TXSendBuffer, 6, 100);
+	  HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }
